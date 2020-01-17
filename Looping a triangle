@@ -1,0 +1,2 @@
+for (let n="#"; n.length <=7; n += "#")
+    console.log(n);
