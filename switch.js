@@ -5,7 +5,7 @@
 var mes = prompt("Ingrese el mes actual en mayúsculas: ", 0);
 var imprime ="";
 
-switch (mes){
+switch (mes.toUpperCase()){
     case "JUNIO":
         imprime = "Es verano";
         break;
