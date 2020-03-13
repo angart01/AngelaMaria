@@ -2,7 +2,7 @@
 // La declaración switch evalúa una expresión,  y compara con (case)
 // ??? DISTINGUIR MAYUSCULAS toUpperCase()/ MINUSCULAS toLowerCase(); - 
 
-var mes = prompt("Ingrese el mes actual en mayúsculas: ", 0);
+var mes = prompt("Ingrese el mes actual: ", 0);
 var imprime ="";
 
 switch (mes.toUpperCase()){
