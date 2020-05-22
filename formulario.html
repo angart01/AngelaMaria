@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+    <script type="text/javascript" src= "formulario.js"></script>
+    <style>
+        .box{
+            width: 300px;
+            height: auto;
+            float: left;
+            margin: 20px;
+        }
+            .dashed{
+                border:1px dashed beige;
+            }
+    </style>
+</head>
+<body>
+    <H1>Ejercicio DOM, Eventos, y Funciones</H1>
+
+    <p>
+        <div class= "box">
+        <form action="#" method="POST" id="formulario" onsubmit="return false;">
+            <label for="nombre">Nombre:</label><br/>
+            <input type="text" name="nombre" id="nombre"/><br/><br/>
+
+            <label for¨="apellidos">Apellidos:</label><br/>
+            <input type="text" name="apellidos" id="apellidos"/><br/><br/>
+
+            <label for="edad">Edad:</label><br/>
+            <input type="number" name="edad" id="edad"/><br/><br/><br/>
+
+            <input type="submit" value="Enviar" id="submit"/><br/>
+          
+        </form>
+        </div>
+    </p>
+    <div class="box dashed">
+            <h3>Datos del usuario</h3>
+            <hr>
+            <p id="_nombre"> Nombre: <span></span></p>
+            <p id="_apellidos"> Apellidos: <span></span></p>
+       <p id="_edad"> Edad: <span></span></p>
+
+    </div>
+       
+   
+</body>
+</html>
