@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO</title>
+    <script>
+        'use strict'
+
+        window.addEventListener('load', () => {
+            console.log("DOM Cargado");
+
+            const elem = (selector) => document.querySelector(selector);
+            const val = (selector) => elem(selector).value;
+            const html = (selector, valor) => elem(selector).innerHTML = valor;
+
+            // devuelven null en caso de error
+            const noVacio = (texto) => texto.trim() == null || texto.trim().length == 0 ? null : texto;
+            const esNumero = (texto) => { let v = parseInt(texto); return isNaN(v) ? null : v; }
+                           
+            // valida este campo usando "prueba" cada vez que cambia o pierde foco
+            const comprueba = (selector, prueba, error) => {
+                const e = elem(selector);
+                e.onchange = e.onblur = () => e.setCustomValidity(prueba(e.value) == null ? error : "");
+            }
+
+            comprueba("#nombre", noVacio, "Tienes que dar un nombre");
+            comprueba("#apellidos", noVacio, "Aquí faltan tus apellidos");
+            comprueba("#edad", esNumero, "La edad tiene que ser un número");
+
+            elem("#formulario").addEventListener('submit', () => {
+                // si llegamos aquí, es que los datos son validos
+                // porque un formulario con errores de validacion no se puede intentar enviar
+                console.log("Datos enviados");
+
+                // más bonito darle una clase, y que el css se encargue de asociarle un estilo
+                elem(".box").classList.add("valid");
+
+                html("#_nombre span", val("#nombre"));
+                html("#_apellidos span", val("#apellidos"));
+                html("#_edad span", val("#edad"));                               
+            });
+        });
+    </script>
+    <style>
+        .box {
+            width: 300px;
+            height: auto;
+            float: left;
+            margin: 20px;
+        }
+
+        .dashed {
+            border: 1px dashed beige;
+        }
+
+        .valid {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <H1>Ejercicio DOM, Eventos, y Funciones</H1>
+
+    <p>
+        <div class="box">
+            <form action="#" method="POST" id="formulario" onsubmit="return false;">
+                <label for="nombre">Nombre:</label><br />
+                <input type="text" name="nombre" id="nombre" /><br /><br />
+
+                <label for¨="apellidos">Apellidos:</label><br />
+                <input type="text" name="apellidos" id="apellidos" /><br /><br />
+
+                <label for="edad">Edad:</label><br />
+                <input type="number" name="edad" id="edad" /><br /><br /><br />
+
+                <input type="submit" value="Enviar" id="submit" /><br />
+            </form>
+        </div>
+    </p>
+    <div class="box dashed">
+        <h3>Datos del usuario</h3>
+        <hr>
+        <p id="_nombre"> Nombre: <span></span></p>
+        <p id="_apellidos"> Apellidos: <span></span></p>
+        <p id="_edad"> Edad: <span></span></p>
+    </div>
+</body>
+</html>
