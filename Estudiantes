@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>estudiantes</title>
+</head>
+<body>
+    <div class="container py-2">
+        <p class="lead"><b>Ingrese sus nombres y su edad</b></p> 
+        <form>
+            <input id="nombre" type="text" placeholder="Ingresa nombres" class="form-control my-2">
+            <input id="edad" type="text" placeholder="Ingresa edad" class="form-control my-2">
+            <button id="boton" class="btn btn-success" type="reset" onclick="agregar();">Agregar</button>
+        </form>
+    </div>
+    <hr>
+    <div class="container">
+        <table class="tabla" id= "tabla" width="70%" border="1" bordercolor="#CECDCD" cellspacing="10" cellpadding="10">
+            <thead class="thead - inverse">
+                <tr bgcolor="000000" style="color:#CECDCD">
+                    <th >Nombres</th>
+                    
+                    <th colspan="25" >Edad</th>
+                </tr>
+            </thead>
+            <tbody><td></td><td></td></tbody>             
+        </table>
+    </div>
+
+<script>
+    function agregar() {
+    }
+    function Estudiante(nombre, edad) {
+        this.nombre=nombre;
+        this.edad=edad;
+      
+    }
+        let nombreCap = document.getElementById("nombre").value;
+       // console.log(nombreCap);
+        let edadCap = document.getElementById("edad").value;
+        //console.log(edadCap);
+
+       nuevoEstudiante = new Estudiante(nombreCap, edadCap);
+        //console.log(nuevoEstudiante);                      
+
+        let guardarDatos = [];
+        function agregar(){
+        guardarDatos.push(nuevoEstudiante);
+        //console.log(guardarDatos);
+        document.getElementById("tabla").innerHTML += '<tbody><td>'+nuevoEstudiante.nombre+ '</td><td>' +nuevoEstudiante.edad+ '</td></tbody>';
+        
+    };
+</script>
+
+</body>
+</html>
