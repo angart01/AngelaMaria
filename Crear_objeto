@@ -1,0 +1,11 @@
+'use strict'
+
+const mayorEdad = usuario => {
+  return usuario.edad >= 18;
+}
+
+const usuario = {
+ nombre: "Angela",
+ edad: 20
+};
+console.log(mayorEdad(usuario));
