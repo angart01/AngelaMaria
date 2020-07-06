@@ -1,14 +1,13 @@
 'use strict'
-class User {
+class Usuario {
     constructor (Apellido, Nombre, edad){
         this.Apellido = Apellido;
         this.Nombre = Nombre;
         this.edad = edad;
     }
 }
-const getUser = () => {
-    return new User("Angela", "Arteaga", 38);
+const nuevoUsuario = () => {
+    return new Usuario("Angela", "Arteaga", 38);
 };
 
-//sample usage
-console.log(getUser());
+console.log(nuevoUsuario());
